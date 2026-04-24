@@ -11,6 +11,7 @@ const TIPOS_SERVICO = [
 
 const STATUS_LIST = [
   'pendente',
+  'agendado',
   'aguardando_instalacao',
   'enviar_equipamento',
   'rastreador_enviado',
@@ -37,6 +38,7 @@ export const instalacaoSchema = z.object({
 
   // OS
   data_os: z.string().optional().nullable(),
+  data_agendamento: z.string().optional().nullable(),
   tipo_servico: z.enum(TIPOS_SERVICO).default('instalacao'),
   status: z.enum(STATUS_LIST).default('pendente'),
 

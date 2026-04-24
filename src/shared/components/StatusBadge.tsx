@@ -3,6 +3,7 @@ import type { StatusInstalacao } from '@/types/domain.types'
 
 const STATUS_CONFIG: Record<StatusInstalacao, { label: string; className: string }> = {
   pendente:             { label: 'PENDENTE',          className: 'bg-zinc-600/15 text-zinc-300 border-zinc-500/40' },
+  agendado:             { label: 'AGENDADO',          className: 'bg-sky-700/15 text-sky-300 border-sky-600/40' },
   aguardando_instalacao:{ label: 'AGUARDANDO',        className: 'bg-blue-700/15 text-blue-300 border-blue-600/40' },
   enviar_equipamento:   { label: 'ENVIAR EQUIP.',     className: 'bg-amber-700/15 text-amber-300 border-amber-600/40' },
   rastreador_enviado:   { label: 'RASTREADOR ENV.',   className: 'bg-violet-700/15 text-violet-300 border-violet-600/40' },

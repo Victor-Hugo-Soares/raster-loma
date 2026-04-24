@@ -59,6 +59,7 @@ function toInstalacaoComAtraso(id: string, data: Record<string, any>): Instalaca
     telefone_cliente: data.telefone_cliente ?? null,
     endereco_cliente: data.endereco_cliente ?? null,
     placa: data.placa,
+    data_agendamento: data.data_agendamento ?? null,
     modelo_veiculo: data.modelo_veiculo ?? null,
     cidade: data.cidade ?? null,
     uf: data.uf ?? null,
@@ -159,6 +160,7 @@ export type CriarInstalacaoData = {
   endereco_cliente?: string | null
   placa: string
   status?: string
+  data_agendamento?: string | null
   card_externo?: string | null
   modelo_veiculo?: string | null
   responsavel?: string | null
@@ -190,6 +192,7 @@ export async function criarInstalacao(dados: CriarInstalacaoData) {
       telefone_cliente: dados.telefone_cliente ?? null,
       endereco_cliente: dados.endereco_cliente ?? null,
       placa: dados.placa,
+      data_agendamento: dados.data_agendamento ?? null,
       modelo_veiculo: dados.modelo_veiculo ?? null,
       cidade: null,
       uf: null,

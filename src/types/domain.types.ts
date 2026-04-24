@@ -1,5 +1,6 @@
 export type StatusInstalacao =
   | 'pendente'
+  | 'agendado'
   | 'aguardando_instalacao'
   | 'enviar_equipamento'
   | 'rastreador_enviado'
@@ -70,6 +71,7 @@ export interface Instalacao {
   uf: string | null
   responsavel: string | null
   data_os: string | null
+  data_agendamento: string | null
   tipo_servico: TipoServico
   status: StatusInstalacao
   data_instalacao: string | null
