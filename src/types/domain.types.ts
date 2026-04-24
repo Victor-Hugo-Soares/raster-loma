@@ -141,6 +141,23 @@ export interface NotificacaoAlerta {
   justificativa: string | null
 }
 
+export type StatusPagamento = 'pago' | 'a_pagar'
+
+export interface Pagamento {
+  id: string
+  numero_nf: string | null
+  valor: number
+  tecnico_id: string
+  tecnico_nome: string | null
+  cnpj: string | null
+  status: StatusPagamento
+  data_vencimento: string | null
+  data_pagamento: string | null
+  observacoes: string | null
+  criado_em: string
+  atualizado_em: string
+}
+
 export interface PerfilUsuario {
   id: string
   nome: string

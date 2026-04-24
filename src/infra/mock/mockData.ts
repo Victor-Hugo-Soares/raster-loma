@@ -1,4 +1,4 @@
-import type { InstalacaoComAtraso, Tecnico, Equipamento } from '@/types/domain.types'
+import type { InstalacaoComAtraso, Tecnico, Equipamento, Pagamento } from '@/types/domain.types'
 
 // ─── Técnicos mock ────────────────────────────────────────────────────────────
 export const MOCK_TECNICOS: Tecnico[] = [
@@ -228,4 +228,12 @@ export const MOCK_EQUIPAMENTOS: Equipamento[] = [
   { id: 'eq-05', imei: '358000000000005', numero_linha: null, modelo: 'N4P', tecnologia: '4G', status: 'defeito', tecnico_id: null, placa_atual: null, criado_em: '2024-03-10T10:00:00Z', atualizado_em: '2024-07-01T10:00:00Z' },
   { id: 'eq-06', imei: '358000000000006', numero_linha: '(11) 91234-0006', modelo: 'N4P', tecnologia: '4G', status: 'reservado', tecnico_id: 'tec-03', placa_atual: null, criado_em: '2024-03-10T10:00:00Z', atualizado_em: '2024-08-01T10:00:00Z' },
   { id: 'eq-07', imei: '358000000000007', numero_linha: '(11) 91234-0007', modelo: 'N4P', tecnologia: '4G', status: 'disponivel', tecnico_id: null, placa_atual: null, criado_em: '2024-04-01T10:00:00Z', atualizado_em: '2024-04-01T10:00:00Z' },
+]
+
+// ─── Pagamentos mock ──────────────────────────────────────────────────────────
+export const MOCK_PAGAMENTOS: Pagamento[] = [
+  { id: 'pag-01', numero_nf: 'NF-000123', valor: 360.00, tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes', cnpj: '12.345.678/0001-90', status: 'pago', data_vencimento: '2026-03-10', data_pagamento: '2026-03-09', observacoes: null, criado_em: '2026-03-01T10:00:00Z', atualizado_em: '2026-03-09T10:00:00Z' },
+  { id: 'pag-02', numero_nf: 'NF-000124', valor: 200.00, tecnico_id: 'tec-02', tecnico_nome: 'Fábio Rocha', cnpj: null, status: 'pago', data_vencimento: '2026-03-10', data_pagamento: '2026-03-10', observacoes: null, criado_em: '2026-03-01T10:00:00Z', atualizado_em: '2026-03-10T10:00:00Z' },
+  { id: 'pag-03', numero_nf: null, valor: 480.00, tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes', cnpj: '12.345.678/0001-90', status: 'a_pagar', data_vencimento: '2026-04-10', data_pagamento: null, observacoes: 'Aguardando NF', criado_em: '2026-04-01T10:00:00Z', atualizado_em: '2026-04-01T10:00:00Z' },
+  { id: 'pag-04', numero_nf: 'NF-000130', valor: 300.00, tecnico_id: 'tec-03', tecnico_nome: 'Ana Souza', cnpj: null, status: 'a_pagar', data_vencimento: '2026-04-10', data_pagamento: null, observacoes: null, criado_em: '2026-04-02T10:00:00Z', atualizado_em: '2026-04-02T10:00:00Z' },
 ]
