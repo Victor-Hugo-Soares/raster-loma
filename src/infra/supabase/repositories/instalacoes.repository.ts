@@ -155,6 +155,8 @@ export async function buscarInstalacao(id: string) {
 
 export type CriarInstalacaoData = {
   nome_cliente: string
+  telefone_cliente?: string | null
+  endereco_cliente?: string | null
   placa: string
   status?: string
   card_externo?: string | null
@@ -185,6 +187,8 @@ export async function criarInstalacao(dados: CriarInstalacaoData) {
       id: newId(),
       card_externo: dados.card_externo ?? null,
       nome_cliente: dados.nome_cliente,
+      telefone_cliente: dados.telefone_cliente ?? null,
+      endereco_cliente: dados.endereco_cliente ?? null,
       placa: dados.placa,
       modelo_veiculo: dados.modelo_veiculo ?? null,
       cidade: null,

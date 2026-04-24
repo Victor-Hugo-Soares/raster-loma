@@ -59,9 +59,6 @@ export async function marcarComoLida(id: string, userId: string) {
     lida_por: userId,
     lida_em: now,
   })
-  const snap = await getDocs(
-    query(collection(db, 'notificacoesAlertas'), where('lida', '==', true), limit(1))
-  )
   // Return updated document by re-fetching via listarNotificacoes filter
   const all = await listarNotificacoes()
   const updated = all.find((n) => n.id === id)

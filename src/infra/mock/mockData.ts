@@ -20,7 +20,7 @@ function daysAgo(n: number) {
 export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   // ── Críticas (15+ dias pendentes) ─────────────────────────────────────────
   {
-    id: 'inst-01', card_externo: 'CARD-001', nome_cliente: 'Transportadora Rápida Ltda', placa: 'ABC-1234',
+    id: 'inst-01', card_externo: 'CARD-001', nome_cliente: 'Transportadora Rápida Ltda', telefone_cliente: null, endereco_cliente: null, placa: 'ABC-1234',
     modelo_veiculo: 'Volkswagen Delivery', cidade: 'São Paulo', uf: 'SP', responsavel: 'João Silva',
     data_os: daysAgo(18), tipo_servico: 'instalacao', status: 'aguardando_instalacao',
     data_instalacao: null, tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes',
@@ -32,7 +32,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
     dias_pendente: 18, nivel_alerta: 'critico',
   },
   {
-    id: 'inst-02', card_externo: 'CARD-002', nome_cliente: 'Logística Express S/A', placa: 'DEF-5678',
+    id: 'inst-02', card_externo: 'CARD-002', nome_cliente: 'Logística Express S/A', telefone_cliente: null, endereco_cliente: null, placa: 'DEF-5678',
     modelo_veiculo: 'Mercedes Actros', cidade: 'Guarulhos', uf: 'SP', responsavel: 'Maria Oliveira',
     data_os: daysAgo(20), tipo_servico: 'substituicao', status: 'aguardando_instalacao',
     data_instalacao: null, tecnico_id: 'tec-02', tecnico_nome: 'Fábio Rocha',
@@ -44,7 +44,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
     dias_pendente: 20, nivel_alerta: 'critico',
   },
   {
-    id: 'inst-03', card_externo: 'CARD-003', nome_cliente: 'Frigorífico Norte S/A', placa: 'GHI-9012',
+    id: 'inst-03', card_externo: 'CARD-003', nome_cliente: 'Frigorífico Norte S/A', telefone_cliente: null, endereco_cliente: null, placa: 'GHI-9012',
     modelo_veiculo: 'Ford Cargo', cidade: 'Campinas', uf: 'SP', responsavel: 'Pedro Santos',
     data_os: daysAgo(16), tipo_servico: 'instalacao', status: 'aguardando_instalacao',
     data_instalacao: null, tecnico_id: 'tec-03', tecnico_nome: 'Ana Souza',
@@ -57,7 +57,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Vermelhos (10–14 dias) ─────────────────────────────────────────────────
   {
-    id: 'inst-04', card_externo: 'CARD-004', nome_cliente: 'Construtora Horizonte', placa: 'JKL-3456',
+    id: 'inst-04', card_externo: 'CARD-004', nome_cliente: 'Construtora Horizonte', telefone_cliente: null, endereco_cliente: null, placa: 'JKL-3456',
     modelo_veiculo: 'Hyundai HR', cidade: 'Santo André', uf: 'SP', responsavel: 'Lucas Ferreira',
     data_os: daysAgo(12), tipo_servico: 'instalacao', status: 'aguardando_instalacao',
     data_instalacao: null, tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes',
@@ -69,7 +69,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
     dias_pendente: 12, nivel_alerta: 'vermelho',
   },
   {
-    id: 'inst-05', card_externo: 'CARD-005', nome_cliente: 'Distribuidora Central', placa: 'MNO-7890',
+    id: 'inst-05', card_externo: 'CARD-005', nome_cliente: 'Distribuidora Central', telefone_cliente: null, endereco_cliente: null, placa: 'MNO-7890',
     modelo_veiculo: 'Fiat Ducato', cidade: 'São Bernardo do Campo', uf: 'SP', responsavel: 'Fernanda Lima',
     data_os: daysAgo(11), tipo_servico: 'manutencao', status: 'aguardando_instalacao',
     data_instalacao: null, tecnico_id: 'tec-04', tecnico_nome: 'Roberto Lima',
@@ -82,7 +82,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Laranja (7–9 dias) ────────────────────────────────────────────────────
   {
-    id: 'inst-06', card_externo: 'CARD-006', nome_cliente: 'Auto Peças Melo', placa: 'PQR-1122',
+    id: 'inst-06', card_externo: 'CARD-006', nome_cliente: 'Auto Peças Melo', telefone_cliente: null, endereco_cliente: null, placa: 'PQR-1122',
     modelo_veiculo: 'Renault Master', cidade: 'Barueri', uf: 'SP', responsavel: 'André Costa',
     data_os: daysAgo(8), tipo_servico: 'instalacao', status: 'enviar_equipamento',
     data_instalacao: null, tecnico_id: 'tec-02', tecnico_nome: 'Fábio Rocha',
@@ -95,7 +95,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Amarelo (5–6 dias) ────────────────────────────────────────────────────
   {
-    id: 'inst-07', card_externo: 'CARD-007', nome_cliente: 'Empresa de Táxis União', placa: 'STU-3344',
+    id: 'inst-07', card_externo: 'CARD-007', nome_cliente: 'Empresa de Táxis União', telefone_cliente: null, endereco_cliente: null, placa: 'STU-3344',
     modelo_veiculo: 'Toyota Corolla', cidade: 'São Paulo', uf: 'SP', responsavel: 'Marcos Rocha',
     data_os: daysAgo(5), tipo_servico: 'instalacao', status: 'rastreador_enviado',
     data_instalacao: null, tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes',
@@ -108,7 +108,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Sem alerta (recentes) ─────────────────────────────────────────────────
   {
-    id: 'inst-08', card_externo: 'CARD-008', nome_cliente: 'Supermercados Boa Oferta', placa: 'VWX-5566',
+    id: 'inst-08', card_externo: 'CARD-008', nome_cliente: 'Supermercados Boa Oferta', telefone_cliente: null, endereco_cliente: null, placa: 'VWX-5566',
     modelo_veiculo: 'VW Constellation', cidade: 'Ribeirão Preto', uf: 'SP', responsavel: 'Cláudia Neves',
     data_os: daysAgo(3), tipo_servico: 'instalacao', status: 'pendente',
     data_instalacao: null, tecnico_id: null, tecnico_nome: null,
@@ -121,7 +121,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Instalado sem acesso APP ──────────────────────────────────────────────
   {
-    id: 'inst-09', card_externo: 'CARD-009', nome_cliente: 'Padaria Trigo Dourado', placa: 'YZA-7788',
+    id: 'inst-09', card_externo: 'CARD-009', nome_cliente: 'Padaria Trigo Dourado', telefone_cliente: null, endereco_cliente: null, placa: 'YZA-7788',
     modelo_veiculo: 'Fiat Fiorino', cidade: 'São Paulo', uf: 'SP', responsavel: null,
     data_os: daysAgo(15), tipo_servico: 'instalacao', status: 'instalado_sem_acesso',
     data_instalacao: daysAgo(10), tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes',
@@ -133,7 +133,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
     dias_pendente: null, nivel_alerta: null,
   },
   {
-    id: 'inst-10', card_externo: 'CARD-010', nome_cliente: 'Lavanderia Express', placa: 'BCD-9900',
+    id: 'inst-10', card_externo: 'CARD-010', nome_cliente: 'Lavanderia Express', telefone_cliente: null, endereco_cliente: null, placa: 'BCD-9900',
     modelo_veiculo: 'Chevrolet S10', cidade: 'Sorocaba', uf: 'SP', responsavel: 'Tiago Martins',
     data_os: daysAgo(20), tipo_servico: 'instalacao', status: 'instalado_sem_acesso',
     data_instalacao: daysAgo(14), tecnico_id: 'tec-04', tecnico_nome: 'Roberto Lima',
@@ -146,7 +146,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Instalado OK ──────────────────────────────────────────────────────────
   {
-    id: 'inst-11', card_externo: 'CARD-011', nome_cliente: 'Empreiteira Construmax', placa: 'EFG-1122',
+    id: 'inst-11', card_externo: 'CARD-011', nome_cliente: 'Empreiteira Construmax', telefone_cliente: null, endereco_cliente: null, placa: 'EFG-1122',
     modelo_veiculo: 'Ford Ranger', cidade: 'Santos', uf: 'SP', responsavel: 'Beatriz Alves',
     data_os: daysAgo(30), tipo_servico: 'instalacao', status: 'instalado_ok',
     data_instalacao: daysAgo(25), tecnico_id: 'tec-04', tecnico_nome: 'Roberto Lima',
@@ -158,7 +158,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
     dias_pendente: null, nivel_alerta: null,
   },
   {
-    id: 'inst-12', card_externo: 'CARD-012', nome_cliente: 'Clínica Vida Saudável', placa: 'HIJ-3344',
+    id: 'inst-12', card_externo: 'CARD-012', nome_cliente: 'Clínica Vida Saudável', telefone_cliente: null, endereco_cliente: null, placa: 'HIJ-3344',
     modelo_veiculo: 'Peugeot Expert', cidade: 'Campinas', uf: 'SP', responsavel: 'Dr. Rafael Gomes',
     data_os: daysAgo(25), tipo_servico: 'instalacao_vistoria', status: 'instalado_ok',
     data_instalacao: daysAgo(20), tecnico_id: 'tec-03', tecnico_nome: 'Ana Souza',
@@ -171,7 +171,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
   },
   // ── Pago ──────────────────────────────────────────────────────────────────
   {
-    id: 'inst-13', card_externo: 'CARD-013', nome_cliente: 'Escola de Idiomas Verba', placa: 'KLM-5566',
+    id: 'inst-13', card_externo: 'CARD-013', nome_cliente: 'Escola de Idiomas Verba', telefone_cliente: null, endereco_cliente: null, placa: 'KLM-5566',
     modelo_veiculo: 'Toyota Hilux SW4', cidade: 'São Paulo', uf: 'SP', responsavel: 'Sandra Pinto',
     data_os: daysAgo(60), tipo_servico: 'instalacao', status: 'pago',
     data_instalacao: daysAgo(55), tecnico_id: 'tec-01', tecnico_nome: 'Carlos Mendes',
@@ -183,7 +183,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
     dias_pendente: null, nivel_alerta: null,
   },
   {
-    id: 'inst-14', card_externo: 'CARD-014', nome_cliente: 'Marmoraria Arte em Pedra', placa: 'NOP-7788',
+    id: 'inst-14', card_externo: 'CARD-014', nome_cliente: 'Marmoraria Arte em Pedra', telefone_cliente: null, endereco_cliente: null, placa: 'NOP-7788',
     modelo_veiculo: 'Scania R 450', cidade: 'São Paulo', uf: 'SP', responsavel: 'Henrique Dias',
     data_os: daysAgo(45), tipo_servico: 'substituicao', status: 'pago',
     data_instalacao: daysAgo(40), tecnico_id: 'tec-02', tecnico_nome: 'Fábio Rocha',
