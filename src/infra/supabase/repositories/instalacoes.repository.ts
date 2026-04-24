@@ -163,6 +163,7 @@ export type CriarInstalacaoData = {
   data_agendamento?: string | null
   card_externo?: string | null
   modelo_veiculo?: string | null
+  cidade?: string | null
   responsavel?: string | null
   data_os?: string | null
   tipo_servico?: string
@@ -194,7 +195,7 @@ export async function criarInstalacao(dados: CriarInstalacaoData) {
       placa: dados.placa,
       data_agendamento: dados.data_agendamento ?? null,
       modelo_veiculo: dados.modelo_veiculo ?? null,
-      cidade: null,
+      cidade: dados.cidade ?? null,
       uf: null,
       responsavel: dados.responsavel ?? null,
       data_os: dados.data_os ?? null,

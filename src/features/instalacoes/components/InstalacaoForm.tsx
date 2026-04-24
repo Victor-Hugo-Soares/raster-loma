@@ -55,6 +55,7 @@ export default function InstalacaoForm({ instalacao, onSuccess }: InstalacaoForm
       card_externo: instalacao?.card_externo ?? null,
       modelo_veiculo: instalacao?.modelo_veiculo ?? null,
       responsavel: instalacao?.responsavel ?? null,
+      cidade: instalacao?.cidade ?? null,
       data_os: instalacao?.data_os ?? null,
       tipo_servico: (instalacao?.tipo_servico as InstalacaoFormData['tipo_servico']) ?? 'instalacao',
       status: (instalacao?.status as InstalacaoFormData['status']) ?? 'pendente',
@@ -167,7 +168,25 @@ export default function InstalacaoForm({ instalacao, onSuccess }: InstalacaoForm
                 <FormLabel>Endereço do associado</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Rua, número, bairro, cidade - UF"
+                    placeholder="Rua, número, bairro - UF"
+                    {...field}
+                    value={field.value ?? ''}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="cidade"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Cidade</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Ex: São Paulo"
                     {...field}
                     value={field.value ?? ''}
                   />

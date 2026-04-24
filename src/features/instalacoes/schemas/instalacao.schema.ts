@@ -34,6 +34,7 @@ export const instalacaoSchema = z.object({
   // Identificação
   card_externo: z.string().optional().nullable(),
   modelo_veiculo: z.string().optional().nullable(),
+  cidade: z.string().optional().nullable(),
   responsavel: z.string().optional().nullable(),
 
   // OS
