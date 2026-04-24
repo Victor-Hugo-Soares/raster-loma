@@ -303,6 +303,7 @@ export async function contarPorStatus() {
   const snap = await getDocs(collection(db, 'instalacoes'))
   const counts: Record<StatusInstalacao, number> = {
     pendente: 0,
+    agendado: 0,
     aguardando_instalacao: 0,
     enviar_equipamento: 0,
     rastreador_enviado: 0,

@@ -255,6 +255,7 @@ function StatusBar({
 
   const bars: { key: StatusInstalacao; label: string; color: string }[] = [
     { key: 'pendente', label: 'Pendente', color: 'bg-zinc-500' },
+    { key: 'agendado', label: 'Agendado', color: 'bg-sky-500' },
     { key: 'aguardando_instalacao', label: 'Aguardando', color: 'bg-blue-500' },
     { key: 'enviar_equipamento', label: 'Enviar equip.', color: 'bg-amber-500' },
     { key: 'rastreador_enviado', label: 'Rastreador enviado', color: 'bg-violet-500' },

@@ -200,6 +200,7 @@ export const MOCK_INSTALACOES: InstalacaoComAtraso[] = [
 export function mockContarPorStatus() {
   const counts = {
     pendente: 0,
+    agendado: 0,
     aguardando_instalacao: 0,
     enviar_equipamento: 0,
     rastreador_enviado: 0,
