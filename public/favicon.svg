@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="5" fill="#0D1B2A"/>
+
+  <!-- Shield -->
+  <path d="M16 4.5L25.5 8.2V16.8C25.5 22.4 21.2 27.2 16 29C10.8 27.2 6.5 22.4 6.5 16.8V8.2L16 4.5Z" fill="#C8962A"/>
+
+  <!-- Inner shield (dark cutout) -->
+  <path d="M16 7.5L23 10.4V17.2C23 21.4 19.8 25.2 16 26.7C12.2 25.2 9 21.4 9 17.2V10.4L16 7.5Z" fill="#0D1B2A"/>
+
+  <!-- Signal / location dot -->
+  <circle cx="16" cy="18" r="2.2" fill="#C8962A"/>
+  <path d="M16 18 L16 13.5" stroke="#C8962A" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
