@@ -7,6 +7,7 @@ import InstalacoesPage from '@/pages/InstalacoesPage'
 import TecnicosPage from '@/pages/TecnicosPage'
 import FinanceiroPage from '@/pages/FinanceiroPage'
 import AlertasPage from '@/pages/AlertasPage'
+import EquipamentosPage from '@/pages/EquipamentosPage'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { session, loading } = useAuth()
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
       { path: 'tecnicos', element: <TecnicosPage /> },
       { path: 'financeiro', element: <FinanceiroPage /> },
       { path: 'alertas', element: <AlertasPage /> },
+      { path: 'equipamentos', element: <EquipamentosPage /> },
     ],
   },
   { path: '*', element: <Navigate to="/" replace /> },

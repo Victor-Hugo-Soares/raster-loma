@@ -1,4 +1,4 @@
-import type { InstalacaoComAtraso, Tecnico } from '@/types/domain.types'
+import type { InstalacaoComAtraso, Tecnico, Equipamento } from '@/types/domain.types'
 
 // ─── Técnicos mock ────────────────────────────────────────────────────────────
 export const MOCK_TECNICOS: Tecnico[] = [
@@ -218,3 +218,14 @@ export function mockContarPorStatus() {
 export function mockContarCriticos() {
   return MOCK_INSTALACOES.filter((i) => i.nivel_alerta === 'critico').length
 }
+
+// ─── Equipamentos mock ────────────────────────────────────────────────────────
+export const MOCK_EQUIPAMENTOS: Equipamento[] = [
+  { id: 'eq-01', imei: '358000000000001', numero_linha: '(11) 91234-0001', modelo: 'N4P', tecnologia: '4G', status: 'utilizado', tecnico_id: 'tec-01', placa_atual: 'ABC-1234', criado_em: '2024-01-15T10:00:00Z', atualizado_em: '2024-06-01T10:00:00Z' },
+  { id: 'eq-02', imei: '358000000000002', numero_linha: '(11) 91234-0002', modelo: 'N4P', tecnologia: '4G', status: 'utilizado', tecnico_id: 'tec-02', placa_atual: 'DEF-5678', criado_em: '2024-01-15T10:00:00Z', atualizado_em: '2024-06-15T10:00:00Z' },
+  { id: 'eq-03', imei: '358000000000003', numero_linha: '(11) 91234-0003', modelo: 'N4P', tecnologia: '4G', status: 'disponivel', tecnico_id: null, placa_atual: null, criado_em: '2024-02-01T10:00:00Z', atualizado_em: '2024-02-01T10:00:00Z' },
+  { id: 'eq-04', imei: '358000000000004', numero_linha: '(11) 91234-0004', modelo: 'N4P', tecnologia: '4G', status: 'disponivel', tecnico_id: null, placa_atual: null, criado_em: '2024-02-01T10:00:00Z', atualizado_em: '2024-02-01T10:00:00Z' },
+  { id: 'eq-05', imei: '358000000000005', numero_linha: null, modelo: 'N4P', tecnologia: '4G', status: 'defeito', tecnico_id: null, placa_atual: null, criado_em: '2024-03-10T10:00:00Z', atualizado_em: '2024-07-01T10:00:00Z' },
+  { id: 'eq-06', imei: '358000000000006', numero_linha: '(11) 91234-0006', modelo: 'N4P', tecnologia: '4G', status: 'reservado', tecnico_id: 'tec-03', placa_atual: null, criado_em: '2024-03-10T10:00:00Z', atualizado_em: '2024-08-01T10:00:00Z' },
+  { id: 'eq-07', imei: '358000000000007', numero_linha: '(11) 91234-0007', modelo: 'N4P', tecnologia: '4G', status: 'disponivel', tecnico_id: null, placa_atual: null, criado_em: '2024-04-01T10:00:00Z', atualizado_em: '2024-04-01T10:00:00Z' },
+]
