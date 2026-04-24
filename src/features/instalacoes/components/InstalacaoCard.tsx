@@ -53,6 +53,7 @@ function DetailRow({ label, value, mono = false }: { label: string; value: React
 
 const ALL_STATUSES: { label: string; value: StatusInstalacao }[] = [
   { label: 'Pendente', value: 'pendente' },
+  { label: 'Agendado', value: 'agendado' },
   { label: 'Aguardando instalação', value: 'aguardando_instalacao' },
   { label: 'Enviar equipamento', value: 'enviar_equipamento' },
   { label: 'Rastreador enviado', value: 'rastreador_enviado' },

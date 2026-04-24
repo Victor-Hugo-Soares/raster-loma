@@ -76,12 +76,10 @@ export default function InstalacaoForm({ instalacao, onSuccess }: InstalacaoForm
   const tecnicoId = useWatch({ control: form.control, name: 'tecnico_id' })
   const currentStatus = useWatch({ control: form.control, name: 'status' })
 
-  // Create mode: auto-adjust status when tech is added or removed
+  // Create mode: auto-advance to aguardando when tech is first selected
   useEffect(() => {
     if (isEdit) return
-    if (!tecnicoId) {
-      form.setValue('status', 'pendente')
-    } else if (currentStatus === 'pendente') {
+    if (tecnicoId && currentStatus === 'pendente') {
       form.setValue('status', 'aguardando_instalacao')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -324,34 +322,44 @@ export default function InstalacaoForm({ instalacao, onSuccess }: InstalacaoForm
             )}
           />
 
-          {/* Status: sempre visível no edit, ou quando técnico selecionado no create */}
-          {(isEdit || !!tecnicoId) && (
+          <FormField
+            control={form.control}
+            name="status"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Status</FormLabel>
+                <Select value={field.value} onValueChange={field.onChange}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="pendente">Pendente</SelectItem>
+                    <SelectItem value="agendado">Agendado</SelectItem>
+                    <SelectItem value="aguardando_instalacao">Aguardando instalação</SelectItem>
+                    <SelectItem value="enviar_equipamento">Enviar equipamento</SelectItem>
+                    <SelectItem value="rastreador_enviado">Rastreador enviado</SelectItem>
+                    <SelectItem value="instalado_sem_acesso">Instalado (sem acesso APP)</SelectItem>
+                    <SelectItem value="instalado_ok">Instalado OK</SelectItem>
+                    <SelectItem value="pago">Pago</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {currentStatus === 'agendado' && (
             <FormField
               control={form.control}
-              name="status"
+              name="data_agendamento"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Status</FormLabel>
-                  <Select value={field.value} onValueChange={field.onChange}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {isEdit && <SelectItem value="pendente">Pendente</SelectItem>}
-                      <SelectItem value="aguardando_instalacao">Aguardando instalação</SelectItem>
-                      <SelectItem value="enviar_equipamento">Enviar equipamento (remoto)</SelectItem>
-                      <SelectItem value="rastreador_enviado">Rastreador enviado</SelectItem>
-                      {isEdit && (
-                        <>
-                          <SelectItem value="instalado_sem_acesso">Instalado (sem acesso APP)</SelectItem>
-                          <SelectItem value="instalado_ok">Instalado OK</SelectItem>
-                          <SelectItem value="pago">Pago</SelectItem>
-                        </>
-                      )}
-                    </SelectContent>
-                  </Select>
+                  <FormLabel>Data de agendamento</FormLabel>
+                  <FormControl>
+                    <Input type="date" {...field} value={field.value ?? ''} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -570,18 +578,6 @@ export default function InstalacaoForm({ instalacao, onSuccess }: InstalacaoForm
                 />
               </div>
 
-              <FormField
-                control={form.control}
-                name="diluido"
-                render={({ field }) => (
-                  <FormItem className="flex items-center gap-3 space-y-0 rounded-md border border-border p-3">
-                    <FormControl>
-                      <Switch checked={field.value} onCheckedChange={field.onChange} />
-                    </FormControl>
-                    <FormLabel className="!mt-0 cursor-pointer">Custo diluído</FormLabel>
-                  </FormItem>
-                )}
-              />
             </div>
           </>
         )}
