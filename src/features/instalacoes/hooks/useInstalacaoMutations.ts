@@ -49,8 +49,8 @@ export function useAtualizarInstalacao() {
 export function useAtualizarStatus() {
   const invalidate = useInvalidate()
   return useMutation({
-    mutationFn: ({ id, status }: { id: string; status: StatusInstalacao }) =>
-      atualizarStatus(id, status),
+    mutationFn: ({ id, status, justificativa }: { id: string; status: StatusInstalacao; justificativa?: string }) =>
+      atualizarStatus(id, status, justificativa),
     onSuccess: () => {
       toast.success('Status atualizado')
       invalidate()

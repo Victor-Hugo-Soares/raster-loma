@@ -3,6 +3,12 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { type ReactNode, useState } from 'react'
 import { Toaster } from 'sonner'
 import { AuthProvider } from '@/shared/hooks/useAuth'
+import { usePushNotification } from '@/shared/hooks/usePushNotification'
+
+function PushNotificationInit() {
+  usePushNotification()
+  return null
+}
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(
@@ -17,6 +23,7 @@ export default function Providers({ children }: { children: ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <PushNotificationInit />
         {children}
         <Toaster
           theme="dark"

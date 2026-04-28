@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Smartphone, Star, Pencil } from 'lucide-react'
+import JustificativaCriticoDialog from './JustificativaCriticoDialog'
 import { formatarData } from '@/shared/utils/dateUtils'
 import { formatarMoeda } from '@/shared/utils/currencyUtils'
 import StatusBadge from '@/shared/components/StatusBadge'
@@ -64,8 +65,27 @@ const ALL_STATUSES: { label: string; value: StatusInstalacao }[] = [
 
 export default function InstalacaoCard({ instalacao, open, onOpenChange }: InstalacaoCardProps) {
   const [editOpen, setEditOpen] = useState(false)
+  const [pendingStatus, setPendingStatus] = useState<StatusInstalacao | null>(null)
   const atualizarStatus = useAtualizarStatus()
   const marcarApp = useMarcarAppEnviado()
+
+  const isCritico = instalacao.nivel_alerta === 'critico'
+
+  function handleMudarStatus(novoStatus: StatusInstalacao) {
+    if (isCritico) {
+      setPendingStatus(novoStatus)
+    } else {
+      atualizarStatus.mutate({ id: instalacao.id, status: novoStatus })
+    }
+  }
+
+  function handleJustificativaConfirm(justificativa: string) {
+    if (!pendingStatus) return
+    atualizarStatus.mutate(
+      { id: instalacao.id, status: pendingStatus, justificativa },
+      { onSettled: () => setPendingStatus(null) }
+    )
+  }
 
   const custoTotal =
     (instalacao.custo_km ?? 0) +
@@ -134,9 +154,7 @@ export default function InstalacaoCard({ instalacao, open, onOpenChange }: Insta
                     {nextStatuses.map((s) => (
                       <DropdownMenuItem
                         key={s.value}
-                        onClick={() =>
-                          atualizarStatus.mutate({ id: instalacao.id, status: s.value })
-                        }
+                        onClick={() => handleMudarStatus(s.value)}
                       >
                         {s.label}
                       </DropdownMenuItem>
@@ -307,6 +325,15 @@ export default function InstalacaoCard({ instalacao, open, onOpenChange }: Insta
           />
         </DialogContent>
       </Dialog>
+
+      {/* Justificativa obrigatória para instalações críticas */}
+      <JustificativaCriticoDialog
+        open={!!pendingStatus}
+        diasAtraso={instalacao.dias_pendente}
+        onConfirm={handleJustificativaConfirm}
+        onCancel={() => setPendingStatus(null)}
+        isPending={atualizarStatus.isPending}
+      />
     </>
   )
 }

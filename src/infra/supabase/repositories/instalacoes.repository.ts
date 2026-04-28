@@ -286,8 +286,23 @@ export async function atualizarInstalacao(
   return toInstalacaoComAtraso(snap.id, snap.data()!)
 }
 
-export async function atualizarStatus(id: string, status: StatusInstalacao) {
-  return atualizarInstalacao(id, { status })
+export async function atualizarStatus(
+  id: string,
+  status: StatusInstalacao,
+  justificativa?: string
+) {
+  if (!justificativa) return atualizarInstalacao(id, { status })
+
+  const data = isMockMode
+    ? mockStore.find((i) => i.id === id)
+    : await getDoc(doc(db, 'instalacoes', id)).then((s) => s.data())
+
+  const obsAtual = (data as Record<string, unknown>)?.observacoes as string | null | undefined
+  const dataFormatada = new Date().toLocaleDateString('pt-BR')
+  const sufixo = `[Justificativa ${dataFormatada}]: ${justificativa}`
+  const observacoes = obsAtual ? `${obsAtual}\n${sufixo}` : sufixo
+
+  return atualizarInstalacao(id, { status, observacoes })
 }
 
 export async function marcarAppEnviado(id: string) {
